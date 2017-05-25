@@ -1,0 +1,128 @@
+====================================================================================================================================
+接口地址：http://47.92.28.251:1024/oauth/token
+接口功能：用户登录，获取token
+请求参数：
+	username
+		描述：用户名
+
+	password
+		描述：密码
+
+	grant_type
+		描述：授权方式
+		取值：在本系统里只支持 password
+请求头：
+	Authorization
+		描述：接口认证方式
+		取值：本系统采用Basic认证，Clentid为app，密码是123456
+
+调用示例(部分)
+		ajax({
+                url: http://47.92.28.251:1024/oauth/token?grant_type=password,
+                method: 'post',
+                data: {
+                	username: '1379681506@qq.com',
+                	password: '100centa30821'
+                },
+                headers: {
+                    'Authorization':'Basic YXBwOjEyMzQ1Ng=='
+                }
+        })
+返回值：登录情况
+	认证失败：
+	{
+  "error": "server_error",
+  "error_description": "Auth Fail"
+	}
+
+	认证成功：
+	{
+  "access_token": "34d5c793-7e13-45ec-9bbf-c3fb101df8dd",
+  "token_type": "bearer",
+  "refresh_token": "94bbeb0c-d2ca-4c3b-bf6c-56e64c44ac4a",
+  "expires_in": 16273,
+  "scope": "read write",
+  "user_id": "9884605"
+}
+
+====================================================================================================================================
+接口地址：http://47.92.28.251:1024/user/selfinfo
+接口功能：获取用户详细信息
+请求参数：
+	access_token
+		描述：登录成功获取的token
+
+	user_id
+		描述：登录成功获取的user_id
+
+
+调用示例:http://47.92.28.251:1024/user/selfinfo?access_token=34d5c793-7e13-45ec-9bbf-c3fb101df8dd&user_id=9884605
+返回值：用户详细信息
+{
+  "id": "e4279c9e9ddd4e84b9d7aa4e1eefc9df",
+  "branchId": 1,
+  "universityId": 1373,
+  "name": "段启岩",
+  "userId": "9884605",
+  "idCard": "123",
+  "type": "学生",
+  "university": "太原理工大学",
+  "avator": "http://img0.imgtn.bdimg.com/it/u=646551672,3473801352&fm=23&gp=0.jpg",
+  "email": "adf@saf.com",
+  "tel": "14123",
+  "telWork": "123",
+  "province": "山西省",
+  "city": "太原市",
+  "status": null,
+  "rememberToken": null,
+  "createdAt": 1493609002000,
+  "updatedAt": 1491722385000,
+  "deletedAt": 1491722385000,
+  "roles": [
+    {
+      "id": 2,
+      "name": "secretary",
+      "description": "书记",
+      "createdAt": null,
+      "updatedAt": null,
+      "type": "USER"
+    },
+    {
+      "id": 3,
+      "name": "member",
+      "description": "党员",
+      "createdAt": null,
+      "updatedAt": null,
+      "type": "USER"
+    }
+  ],
+  "branch": {
+    "id": 1,
+    "universityId": null,
+    "secretaryId": null,
+    "name": "段启岩-党支部",
+    "avator": null,
+    "type": null,
+    "university": null,
+    "tel": null,
+    "verification": null,
+    "address": null,
+    "summary": null,
+    "totalMember": null,
+    "secretarySummary": null,
+    "createdAt": null,
+    "updatedAt": null,
+    "deletedAt": null,
+    "applyImg": null,
+    "detail": null
+  },
+  "universityPO": {
+    "id": 1373,
+    "provinceId": null,
+    "name": "太原理工大学",
+    "province": {
+      "id": 22,
+      "name": "山西省"
+    }
+  }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登陆</title>
+	<link rel="stylesheet" href="css/login.css">
+	<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+	<div class="login">
+		<div class="login-bac"></div>
+		<div class="login-main">
+			<div class="logo">
+				<img src="img/dior.jpg" alt="">
+			</div>
+			<form action="javascript:inspect();" id="info">
+				<div class="tablebox"><span>帐号：</span><input type="text" name="username" placeholder="请输入您的帐号" id="accmont"></div>	
+				<div class="tablebox"><span>密码：</span><input type="password" name="password" placeholder="请输入您的密码"  id="password"></div>	
+				<button id="login">登陆</button>
+			</form>
+		</div>
+	</div>
+
+
+	<!-- JS部分 -->
+	<script type="text/javascript">
+		// //检测原生XHR对象是否存在，如果存在刚返回它的新实例； 
+		// //如果不存在，则检测ActiveX对象; 
+		// //如果两个都不存在，就抛出一个错误。 
+		// function  createXHR(){ 
+		//     if(typeof XMLHttpRequest != "undefined"){ 
+		//         return new XMLHttpRequest(); 
+		//     }else if(typeof ActiveXObject != "undefined"){ 
+		//         //适合IE7之前的版本 
+		//         if(typeof arguments.callee.activeXString != "string"){ 
+		//             var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML.XMLHttp"]; 
+		//             for(var i=0,len=versions.length; i<len; i++){ 
+		//                 try{ 
+		//                     var xhr = new ActiveXObject(versions[i]); 
+		//                     arguments.callee.activeXString = versions[i]; 
+		//                     return xhr; 
+		//                 }catch (ex){ 
+		//                     //跳过 
+		//                 } 
+		//             } 
+		//         } 
+		        
+		//         return new ActiveXObject(arguments.callee.activeXString); 
+		//     }else{ 
+		//         throw new Error("No XHR object available."); 
+		//     }; 
+		// }
+
+		// // 序列化表单
+		// function serialize(form){        
+	 //        var parts = new Array();
+	 //        var field = null;
+	 //        for (var i=0, len=form.elements.length; i < len; i++){
+	 //            field = form.elements[i];
+	 //            parts.push(encodeURIComponent(field.name) + "=" + 
+	 //            encodeURIComponent(field.value));                
+	 //        }        
+	 //        return parts.join("&");
+	 //    }
+
+		// function requier(){
+		// 	//请求服务器
+		// 	var xhr=createXHR();
+		// 	var url='http://47.92.28.251:1024/article/0/1/list';
+		// 	xhr.onreadystatechange=function () {
+		// 		if (xhr.readyState==4) {
+		// 			if (xhr.status==200) {
+		// 				alert(xhr.responseText);
+		// 			} else {
+		// 				alert('获取数据错误!错误代号：'+xhr.status+'错误信息：'+xhr.statusText);
+		// 			}
+		// 		}
+		// 	};
+		// 	xhr.open('post',url,true);
+		// 	xhr.setRequest('Authorization','Basic YXBwOjEyMzQ1Ng==');
+		// 	var form = document.getElementById("info"); 
+		// 	xhr.send(serialize(form));
+
+		// }
+		// 
+		// 
+		// 
+		// jquery
+		// var next;
+		// function back(){
+		// 	$ajax({
+		// 		method:'post',
+		// 		url: 'http://47.92.28.251:1024/user/selfinfo',
+		//         dataType: 'json',
+		//         data: {
+  //               	access_token: data.access_token,
+  //               	user_id: data.user_id
+  //               },
+  //               success: function(ret) {
+		//             window.location.assign="main.html";
+		//             next=ret;
+		//         },
+		//         error: function(error) {
+		//         	"error": "server_error",
+		// 			"error_description": "Auth Fail"
+		//         }
+		// 	})
+		// }
+
+
+		// function requier(){
+		// 	$.ajax({
+		//         method: 'post',
+		//         url: 'http://47.92.28.251:1024/oauth/token',
+		//         dataType: 'json',
+		//         data: {
+  //               	username: accmont,
+  //               	password: password
+  //               },
+  //               headers: {
+  //                   'Authorization':'Basic YXBwOjEyMzQ1Ng=='
+  //               },
+		//         success: function back(data) {
+		            
+		//         },
+		//         error: function(error) {
+		//         	"error": "server_error",
+		// 			"error_description": "Auth Fail"
+		//         },
+		//         beforeSend: function(xhr) {  
+		// 	    	token = window.localStorage.getItem('token');  
+		// 	        xhr.setRequestHeader("Authorization", "Basic " + btoa(token + ":"));  
+		// 	    } 
+		// 	})
+		// };
+
+		
+		function inspect(){
+			var accmont=document.getElementById('accmont').value;
+			var password=document.getElementById('password').value;
+			if (accmont=='') {
+				alert("请填写用户名！");
+				return;
+			} else{
+				if (password=='') {
+					alert("请填写密码！");
+					return;
+				} else {
+					// function requier();
+				}
+			}
+		};
+
+
+	</script>
+</body>
+</html>

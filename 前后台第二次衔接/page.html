@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文章</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<header>
+		<h1>支部工作</h1>
+	</header>
+	<div class="bodycontiner">
+		<div class="childpage" id="childpage">
+			<h2><span></span></h2>
+			<div class="page-img">
+				<img src="" alt="">
+			</div>
+			<p class="page-main"></p>
+			<div class="videobox">
+				<video src="" controls="controls"></video>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<h3>假装有内容</h3>
+	</footer>
+	<script type="text/javascript">
+		var loc = location.href;
+		var n1 = loc.length;
+		var n2 = loc.indexOf("=");
+		var id = decodeURI(loc.substr(n2+1, n1-n2));
+		//检测原生XHR对象是否存在，如果存在刚返回它的新实例； 
+		//如果不存在，则检测ActiveX对象; 
+		//如果两个都不存在，就抛出一个错误。 
+		function  createXHR(){ 
+		    if(typeof XMLHttpRequest != "undefined"){ 
+		        return new XMLHttpRequest(); 
+		    }else if(typeof ActiveXObject != "undefined"){ 
+		        //适合IE7之前的版本 
+		        if(typeof arguments.callee.activeXString != "string"){ 
+		            var versions = ["MSXML2.XMLHttp.6.0","MSXML2.XMLHttp.3.0","MSXML.XMLHttp"]; 
+		            for(var i=0,len=versions.length; i<len; i++){ 
+		                try{ 
+		                    var xhr = new ActiveXObject(versions[i]); 
+		                    arguments.callee.activeXString = versions[i]; 
+		                    return xhr; 
+		                }catch (ex){ 
+		                    //跳过 
+		                } 
+		            } 
+		        } 
+		        
+		        return new ActiveXObject(arguments.callee.activeXString); 
+		    }else{ 
+		        throw new Error("No XHR object available."); 
+		    }; 
+		}
+
+		//请求服务器
+		var xhr=createXHR();
+		var url='http://47.92.28.251:1024/article/'+id;
+		xhr.onreadystatechange=function () {
+			if (xhr.readyState==4) {
+				if (xhr.status==200) {
+					var ret=JSON.parse(xhr.responseText);
+					var page=document.getElementById('childpage');      //填充内容
+					var html = '';
+					var tmp = '<h2>' + ret.title + '<span class="type">'+ret.type+'</span></h2>'+'<div class="page-img"><img src="'+ret.imageUrl+'"></div><div class="page-main"><p class="university">'+ret.university+'</p><p class="content">'+ret.summary+'</p></div><div class="videobox">'+ret.videoFrame+'</div>';
+					html += tmp;
+					page.innerHTML=html;
+				} else {
+					alert('获取数据错误!错误代号：'+xhr.status+'错误信息：'+xhr.statusText);
+				}
+			}
+		};
+		xhr.open('get',url,true);
+		xhr.send(null);
+	</script>
+</body>
+</html>

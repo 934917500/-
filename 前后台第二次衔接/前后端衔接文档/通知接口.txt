@@ -1,0 +1,25 @@
+====================================================================================================================================
+接口地址：http://47.92.28.251:1024/notice/{offset}/list	
+接口功能：获取通知列表
+参数：
+	offset：
+		描述：启始索引
+		取值范围：0.......N
+	
+返回值：JSON数组
+调用示例：http://47.92.28.251:1024/notice/0/list
+返回示例：[{"id":3,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":4,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":5,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":6,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":7,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":8,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":9,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":10,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":11,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"},{"id":12,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":null,"content":"132"}]
+====================================================================================================================================
+
+====================================================================================================================================
+接口地址：http://47.92.28.251:1024/notice/{id}	
+接口功能：获取通知详情
+参数：
+	id：
+		描述：通知的id
+	
+返回值：一篇文章
+调用示例：http://47.92.28.251:1024/notice/3
+返回示例：
+{"id":3,"managerId":null,"author":"中国大学生在线","title":"测试","imgUrl":null,"createdAt":1493563683000,"content":"132"}
+====================================================================================================================================

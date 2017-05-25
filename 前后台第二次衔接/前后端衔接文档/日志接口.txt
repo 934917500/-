@@ -1,0 +1,30 @@
+====================================================================================================================================
+接口地址：http://47.92.28.251:1024/journal/{offset}/{typeCode}/list	
+接口功能：获取日志列表
+参数：
+	offset：
+		描述：启始索引
+		取值范围：0.......N
+	typeCode：
+		描述：日志类型
+		取值范围：（-1：所有类型,1：支部党员大会,2：支部委员会,3：党小组会,4：微党课，5：组织生活）
+请求参数：
+	user_id:登录后获取的user_id
+返回值：JSON数组
+调用示例：http://47.92.28.251:1024/journal/0/1/list?user_id=9965029
+返回示例：
+[{"id":"42757bfe237211e7ac7c00163e000f4f","typeId":1,"secretaryId":"282bd25aa9ce4f58bb9a67cb5cb7d5ea","title":"这是日志标题","images":"www.imgUrl.com","level":1,"status":0,"createdAt":1492435924000,"updatedAt":null,"deletedAt":null,"content":"这是日志内容，哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈哈哈哈哈","secretary":{"id":"282bd25aa9ce4f58bb9a67cb5cb7d5ea","branchId":null,"universityId":null,"name":"刘寅新","userId":null,"idCard":null,"type":null,"university":null,"avator":"http://img0.imgtn.bdimg.com/it/u=646551672,3473801352&fm=23&gp=0.jpg","email":null,"tel":null,"telWork":null,"province":null,"city":null,"status":null,"rememberToken":null,"createdAt":null,"updatedAt":null,"deletedAt":null,"roles":null,"branch":null,"universityPO":null}},{"id":"7705d500237111e7ac7c00163e000f4f","typeId":1,"secretaryId":"282bd25aa9ce4f58bb9a67cb5cb7d5ea","title":"这是日志标题","images":"www.imgUrl.com","level":1,"status":0,"createdAt":1492435571000,"updatedAt":null,"deletedAt":null,"content":"这是日志内容，哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈哈哈哈哈","secretary":{"id":"282bd25aa9ce4f58bb9a67cb5cb7d5ea","branchId":null,"universityId":null,"name":"刘寅新","userId":null,"idCard":null,"type":null,"university":null,"avator":"http://img0.imgtn.bdimg.com/it/u=646551672,3473801352&fm=23&gp=0.jpg","email":null,"tel":null,"telWork":null,"province":null,"city":null,"status":null,"rememberToken":null,"createdAt":null,"updatedAt":null,"deletedAt":null,"roles":null,"branch":null,"universityPO":null}}]
+====================================================================================================================================
+
+====================================================================================================================================
+接口地址：http://47.92.28.251:1024/journal/{id}	
+接口功能：获取日志详情
+参数：
+	id：
+		描述：文章的id
+		取值：32位uuid
+	
+返回值：一篇文章
+调用示例：http://47.92.28.251:1024/journal/42757bfe237211e7ac7c00163e000f4f
+返回示例：
+{"id":"42757bfe237211e7ac7c00163e000f4f","typeId":1,"secretaryId":"282bd25aa9ce4f58bb9a67cb5cb7d5ea","title":"这是日志标题","images":"www.imgUrl.com","level":1,"status":0,"createdAt":1492435924000,"updatedAt":null,"deletedAt":null,"content":"这是日志内容，哈哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈啊哈哈哈哈哈哈哈哈哈","secretary":null}
